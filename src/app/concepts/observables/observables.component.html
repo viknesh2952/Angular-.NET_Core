@@ -1,0 +1,55 @@
+<div class="card flex justify-content-center">
+    <p-accordion [multiple]="true" [activeIndex]="[0]" (onOpen)="resolvePromise($event)">
+        <p-accordionTab header="Subscribe to Timer - it turned off automatically after 2 minutes">
+            <p>
+                <button pButton (click)="ToggleTimer()">{{ (this.isTimerOn && !this.isTimerOn?.closed)? 'Off':'On'}}
+                    Timer</button>
+                {{this.timer}}
+            </p>
+        </p-accordionTab>
+        <p-accordionTab header="Handling user events using subscribe" (mouseenter)="emitTab($event)"
+            (mouseleave)="emitTab($event)" (click)="emitTab($event)">
+            <h4>Observable - Events</h4>
+            <p>
+                It listens to the observable and displays the results in the screen. It displays user events over the
+                accordion
+            </p>
+            <strong>{{eventName}}</strong> occurred in this accordion
+        </p-accordionTab>
+        <p-accordionTab header="Promise - resolved after 5 seconds">
+            <p>
+                Promised Data - {{data}}
+            </p>
+        </p-accordionTab>
+        <p-accordionTab header="Subject Example has 3 subscribers to the subject (multicasting)">
+            <div>
+                <h4>Person 1</h4>
+                <ng-container *ngIf="taskClear || taskAllocated && !p1.taskStatus || !taskAllocated">
+                    <button pButton (click)="(taskAllocated)? completeTask('Person 1'):AllocateTask('Person 1')"
+                        *ngIf="activeParticipants.includes('Person 1')">{{(taskAllocated)?'Complete Task':'Allocate Task'}}</button>
+                </ng-container>
+                <p *ngFor="let message of p1.messageData">{{message}}</p>
+            </div>
+            <div>
+                <h4>Person 2</h4>
+                <ng-container *ngIf="taskClear || taskAllocated && !p2.taskStatus || !taskAllocated">
+                    <button pButton (click)="(taskAllocated)? completeTask('Person 2'):AllocateTask('Person 2')"
+                        *ngIf="activeParticipants.includes('Person 2')">{{(taskAllocated)?'Complete Task':'Allocate Task'}}</button>
+                </ng-container>
+                <button pButton (click)="joinGroup('Person 2')"
+                    *ngIf="!activeParticipants.includes('Person 2')">Join</button>
+                <p *ngFor="let message of p2.messageData">{{message}}</p>
+            </div>
+            <div>
+                <h4>Person 3</h4>
+                <ng-container *ngIf="taskClear || taskAllocated && !p3.taskStatus || !taskAllocated">
+                    <button pButton (click)="(taskAllocated)? completeTask('Person 3'):AllocateTask('Person 3')"
+                        *ngIf="activeParticipants.includes('Person 3')">{{(taskAllocated)?'Complete Task':'Allocate Task'}}</button>
+                </ng-container>
+                <button pButton (click)="joinGroup('Person 3')"
+                    *ngIf="!activeParticipants.includes('Person 3')">Join</button>
+                <p *ngFor="let message of p3.messageData">{{message}}</p>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+</div>

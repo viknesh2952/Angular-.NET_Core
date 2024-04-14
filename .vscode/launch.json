@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Angular CLI Serve",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3200",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/src/*"
+      },
+      "runtimeExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", // Windows path
+      "runtimeArgs": [
+        "serve",
+        "--port",
+        "3200",
+        "--disable-host-check"
+      ],
+      "timeout": 30000,
+      "sourceMaps": true,
+      "preLaunchTask": "npm: start",
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**"
+      ]
+    }
+  ]
+}

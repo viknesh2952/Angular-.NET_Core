@@ -1,0 +1,14 @@
+<div class="card flex">
+    <p-panel header="Directive - To highlight selected text (using hostListener)" [toggleable]="true">
+        <p appHighlight="yellow">
+            Here is the sample text to show the highlight when selected 
+        </p>
+    </p-panel>
+</div>
+<div class="card flex">
+    <p-panel header="Directive - To highlight selected text (using hostBinding)" [toggleable]="true">
+        <p appHighlight [paint]="isHighlight">
+            Here is the sample text to show the highlight by default (using hostBinding)
+        </p>
+    </p-panel>
+</div>

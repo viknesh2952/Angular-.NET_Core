@@ -1,0 +1,37 @@
+.sidebar {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0; /* Sidebar background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better appearance */
+  }
+  
+  /* Adjust menu item styles as needed */
+  :host::ng-deep .p-menu {
+    width: 20rem !important;
+  }
+  :host::ng-deep .p-sidebar .p-sidebar-content{
+    padding: 0px !important;
+  }
+  .p-menu .p-menuitem {
+    width: 100%;
+    display: block;
+  }
+  .pageopened{
+    --initial-margin: 15px; /* Set the initial margin value */
+    margin:var(--initial-margin) 20px var(--initial-margin) 350px !important;
+  }
+  .pageclosed{
+    --initial-margin: 15px; /* Set the initial margin value */
+    margin:var(--initial-margin) 20px var(--initial-margin) 50px !important;
+  }
+  #logoutbtn{
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  :host::ng-deep .p-menuitem-link-active{
+   font-weight:bolder;
+   text-decoration: underline;
+  }

@@ -1,0 +1,18 @@
+<p-button (click)="sidebarVisible=!sidebarVisible" icon="pi pi-bars"></p-button>
+
+<p-sidebar [(visible)]="sidebarVisible" [modal]="false" [showCloseIcon]="true">
+    <ng-template pTemplate="header">Practice App</ng-template>
+    <ng-template pTemplate="content">
+        <div class="card flex justify-content-center">
+            <p-menu [model]="items"></p-menu>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">By Viknesh Duraisamy</ng-template>
+</p-sidebar>
+
+<div [ngClass]="sidebarVisible?'pageopened':'pageclosed'">
+    <!-- () indicates Event binding & [] indicates property binding -->
+    <p-button icon="pi pi-iconName" label="Logout" (click)="logout()" id="logoutbtn"></p-button>
+    <hr>
+    <router-outlet></router-outlet>
+</div>

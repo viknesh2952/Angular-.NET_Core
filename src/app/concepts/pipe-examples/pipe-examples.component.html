@@ -1,0 +1,25 @@
+<div class="card flex">
+    <p-panel header="Pure Pipe - Transforms text" [toggleable]="true">
+        <p>
+            {{'It changes values on input change (Changed to upper case using inbuilt pure pipe)' | uppercase}}
+        </p>
+    </p-panel>
+</div>
+<div class="card flex">
+    <p-panel header="Impure Pipe - for filtering" [toggleable]="true">
+        <div class="flex flex-column gap-2">
+            <label for="filter">Filter</label>
+            <input type="text" pInputText [(ngModel)]="filterCriteria" name="filter">
+        </div>
+        <p>If we use pure pipe for this, filter & adding an item would not update the latest search. It only refers the
+            current search criteria, not a source.</p>
+        <br>
+        Available names - {{names}}
+        <br>
+        Filtered Data -
+        <p *ngFor="let name of names | filterpipe:filterCriteria">
+            {{name}}
+        </p>
+        <p-button (click)="addItem()">Add item</p-button>
+    </p-panel>
+</div>
