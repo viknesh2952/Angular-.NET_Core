@@ -7,13 +7,21 @@ import { FormsModule } from '@angular/forms';
 import { UtilitiesModule } from '../utilities/utilities.module';
 import { DirectivesExComponent } from './directives-ex/directives-ex.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { ProjectionExComponent } from './projection-ex/projection-ex.component';
+import { ChildContentComponent } from './projection-ex/child-content/child-content.component';
+import { TemplatePropertiesComponent } from './template-properties/template-properties.component';
+import { ChildTemplateComponent } from './template-properties/child_template/child-template.component';
 
 
 @NgModule({
   declarations: [
     PipeExamplesComponent,
     DirectivesExComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    ProjectionExComponent,
+    ChildContentComponent,
+    TemplatePropertiesComponent,
+    ChildTemplateComponent
   ],
   imports: [
     CommonModule,

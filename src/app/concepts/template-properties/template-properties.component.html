@@ -1,0 +1,15 @@
+<ng-template #sampleTemplate let-data = "name">
+    Here is the sample template defined in Parent
+    <br>
+    Value from child to parent template -> `{{data}}`
+</ng-template>
+Parent component - 
+Message from Child through {{'@Output'}} is `{{childMsg}}`
+<div class="child-template">
+    <child-template [template]="templateFromReference" (afterClick)="clickFun($event)"></child-template>
+</div>
+<br>
+Call child method using {{'@ViewChild() method'}} <p-button (click)="childMethod()">Call child</p-button>
+<br>
+<br>
+Keywords - {{'@Input,@Output,@ViewChild,Template Ref, Template Outlet, Passing template from parent to child'}}

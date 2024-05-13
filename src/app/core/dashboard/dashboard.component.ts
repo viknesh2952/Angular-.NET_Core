@@ -39,6 +39,16 @@ export class DashboardComponent {
         label: 'Observables',
         icon: '',
         routerLink:['/base/observables']
+      },
+      {
+        label: 'Content Projection',
+        icon: '',
+        routerLink:['/base/projection']
+      },
+      {
+        label: 'Template & Properties',
+        icon: '',
+        routerLink:['/base/template_prop']
       }
   ];
   }

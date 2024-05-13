@@ -2,7 +2,7 @@
     <p-accordion [multiple]="true" [activeIndex]="[0]" (onOpen)="resolvePromise($event)">
         <p-accordionTab header="Subscribe to Timer - it turned off automatically after 2 minutes">
             <p>
-                <button pButton (click)="ToggleTimer()">{{ (this.isTimerOn && !this.isTimerOn?.closed)? 'Off':'On'}}
+                <button pButton (click)="ToggleTimer()">{{ (this.isTimerOn && !this.isTimerOn.closed)? 'Off':'On'}}
                     Timer</button>
                 {{this.timer}}
             </p>

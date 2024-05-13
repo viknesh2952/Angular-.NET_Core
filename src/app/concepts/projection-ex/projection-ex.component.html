@@ -1,0 +1,28 @@
+Additional Concepts used- {{'@Input, @Output'}}
+<div class="card flex justify-content-center">
+    <p-accordion [multiple]="true" [activeIndex]="[0]">
+        <p-accordionTab header="Single slot Projection - Example">
+            <app-child-content>Projected Data from Parent</app-child-content>
+        </p-accordionTab>
+        <p-accordionTab header="Multi slot Projection - Example">
+            <app-child-content method="multislot" [valueBy]="property" (childEmit)="childEmitted($event)"><!--Using @Input Property-->
+                <p>Multi slot Content data projected from Parent</p>
+                <div class="secondary-data">Header element</div>
+            </app-child-content>
+        </p-accordionTab>
+        <p-accordionTab header="Conditional slot Projection - Example">
+            <app-child-content method="conditional">
+                <ng-container ngProjectas=".top"><!--this ng-container won't render in the DOM, whereas the inner content does & ngProjectas can be used along with ng-container-->
+                    <div id="header-element">Header</div>
+                    <div id="footer-element">footer</div>
+                </ng-container>
+                <ng-container *ngIf="conditionalContent;else conditionalProjection">
+                    It has conditional Content
+                </ng-container>
+            </app-child-content>
+        </p-accordionTab>
+    </p-accordion>
+</div>
+<ng-template #conditionalProjection>
+    Remaining content data projected from parent <p>Uses - ngContainer,ngProjectas,ngTemplate</p>
+</ng-template>
