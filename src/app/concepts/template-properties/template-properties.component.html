@@ -1,15 +1,36 @@
-<ng-template #sampleTemplate let-data = "name">
-    Here is the sample template defined in Parent
-    <br>
-    Value from child to parent template -> `{{data}}`
+<ng-template #sampleTemplate let-data="name">
+  Here is the sample template defined in Parent
+  <br>
+  Value from child to parent template -> {{data}}
+  <br>
 </ng-template>
-Parent component - 
-Message from Child through {{'@Output'}} is `{{childMsg}}`
-<div class="child-template">
-    <child-template [template]="templateFromReference" (afterClick)="clickFun($event)"></child-template>
-</div>
-<br>
-Call child method using {{'@ViewChild() method'}} <p-button (click)="childMethod()">Call child</p-button>
-<br>
-<br>
-Keywords - {{'@Input,@Output,@ViewChild,Template Ref, Template Outlet, Passing template from parent to child'}}
+<p-accordion [multiple]="true" [activeIndex]="[0]">
+  <p-accordionTab header="Decorators - usage">
+    Parent component:
+    <br>
+    Message from Child component through {{'@Output'}} is {{childMsg}}
+    <br>
+    <div class="child-template">
+      <child-template [template]="templateFromReference" [listInput]="listValue" (afterClick)="clickFun($event)" ></child-template>
+    </div>
+  </p-accordionTab>
+  <p-accordionTab header="Change Detection">
+    <b>In default change detection strategy, it will detect for changes in both parent and child component if any data is mutated in list</b>
+    <br>
+    <b>In On Push change detection strategy, it will detect for changes in parent but it detects changes in child component only if the reference is changed (use spread operator) or manually detecting changes</b>
+    <br>
+    <b>Detach</b> - It detaches the change detection for the component and need to use .markForCheck() to detect changes
+    <br>
+    <b>Re-attach</b> - It re attaches the detached component for change detection
+    <br>
+    <hr>
+    <p-button (click)="addElement()">Add element</p-button>
+    <hr>
+    <span *ngFor="let i of listValue">{{i}}</span>
+  </p-accordionTab>
+  <p-accordionTab header="Usages">
+    Call child method using {{'@ViewChild()'}} method <p-button (click)="childMethod()">Call child</p-button>
+    <br><br>
+    Keywords - {{'@Input'}}, {{'@Output'}}, {{'@ViewChild()'}}, Template Ref, Template Outlet, Passing template from parent to child, Change detection strategies
+  </p-accordionTab>
+</p-accordion>

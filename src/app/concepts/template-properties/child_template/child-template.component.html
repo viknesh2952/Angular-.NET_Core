@@ -1,5 +1,11 @@
 <ng-container [ngTemplateOutlet]="templateInput" [ngTemplateOutletContext]="{name:'vikki'}">
 </ng-container>
 <br>
+List value - {{listInput}} 'as a value'
+<br>
+<span *ngFor="let i of listInput">{{i}}</span> 'as a element'
+<br>
 <p-button (click)="submit()">Emit</p-button>
+<br>
+<p-button (click)="refresh()">Refresh</p-button>
 
